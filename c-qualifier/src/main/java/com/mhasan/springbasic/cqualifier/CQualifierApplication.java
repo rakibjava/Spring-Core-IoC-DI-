@@ -1,12 +1,8 @@
 package com.mhasan.springbasic.cqualifier;
 
-import com.mhasan.springbasic.cqualifier.anotherExInOneFile.Vehicle;
-import com.mhasan.springbasic.cqualifier.anotherinOneFile.Bike;
-import com.mhasan.springbasic.cqualifier.anotherinOneFile.Car;
-import com.mhasan.springbasic.cqualifier.anotherinOneFile.VehicleService;
-import com.mhasan.springbasic.cqualifier.anotherinOneFile.another.Bike1;
+import com.mhasan.springbasic.cqualifier.anotherinOneFile.BikeVehicleService;
+import com.mhasan.springbasic.cqualifier.anotherinOneFile.CarVehicleService;
 import com.mhasan.springbasic.cqualifier.anotherinOneFile.another.Bike1Service;
-import com.mhasan.springbasic.cqualifier.anotherinOneFile.another.Car1;
 import com.mhasan.springbasic.cqualifier.anotherinOneFile.another.Car1Service;
 import com.mhasan.springbasic.cqualifier.controller.ConstructorInjectedController;
 import com.mhasan.springbasic.cqualifier.controller.GetterInjectedController;
@@ -29,9 +25,11 @@ public class CQualifierApplication {
 		System.out.println(ctx.getBean("harleyDevison"));
 
 		System.out.println("====Another Dependency Injection using qualifier====");
-		VehicleService vehicle = ctx.getBean(VehicleService.class);
+		CarVehicleService vehicle = ctx.getBean(CarVehicleService.class);
 		vehicle.service();
 
+		BikeVehicleService bikeVehicleService = ctx.getBean(BikeVehicleService.class);
+		bikeVehicleService.service();
 		System.out.println("====Another Dependency Injection using qualifier====");
 		ctx.getBean(Bike1Service.class).getType();
 		ctx.getBean(Car1Service.class).getType();
