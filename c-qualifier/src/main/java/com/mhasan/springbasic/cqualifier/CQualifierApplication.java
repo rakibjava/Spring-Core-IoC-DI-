@@ -6,6 +6,7 @@ import com.mhasan.springbasic.cqualifier.anotherinOneFile.another.Bike1Service;
 import com.mhasan.springbasic.cqualifier.anotherinOneFile.another.Car1Service;
 import com.mhasan.springbasic.cqualifier.controller.ConstructorInjectedController;
 import com.mhasan.springbasic.cqualifier.controller.GetterInjectedController;
+import com.mhasan.springbasic.cqualifier.controller.GreetingServiceQualifier;
 import com.mhasan.springbasic.cqualifier.controller.PropertyInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,9 +17,15 @@ public class CQualifierApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(CQualifierApplication.class, args);
 		System.out.println("====Dependency Injection using qualifier====");
-		System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
+
+		GreetingServiceQualifier greetingServiceQualifier = ctx.getBean ( "greetingQualifier" , GreetingServiceQualifier.class);
+		System.out.println (greetingServiceQualifier.sayProperty ());
+		System.out.println (greetingServiceQualifier.sayGetter ());
+		System.out.println (greetingServiceQualifier.sayConstructor ());
+
+		/*System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
 		System.out.println(ctx.getBean(GetterInjectedController.class).sayHello());
-		System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+		System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());*/
 
 		System.out.println("====Another Dependency Injection using qualifier====");
 		System.out.println(ctx.getBean("toyota"));
@@ -33,9 +40,6 @@ public class CQualifierApplication {
 		System.out.println("====Another Dependency Injection using qualifier====");
 		ctx.getBean(Bike1Service.class).getType();
 		ctx.getBean(Car1Service.class).getType();
-
-
-
 	}
 
 }

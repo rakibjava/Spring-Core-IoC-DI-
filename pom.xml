@@ -25,6 +25,11 @@
         <module>g-externalpropertysource</module>
         <module>h-profileproperties</module>
         <module>i-multipleprofile</module>
+        <module>lifeCycle</module>
+        <module>jprototypebean</module>
+        <module>kbeanambiguty</module>
+        <module>m-injecting-collections</module>
+        <module>circulardependency</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>

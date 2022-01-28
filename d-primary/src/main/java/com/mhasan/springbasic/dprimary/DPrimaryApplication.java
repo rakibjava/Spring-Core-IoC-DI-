@@ -1,5 +1,6 @@
 package com.mhasan.springbasic.dprimary;
 
+import com.mhasan.springbasic.dprimary.anotherone.FacebookMessage;
 import com.mhasan.springbasic.dprimary.anotherone.MessagingInterface;
 import com.mhasan.springbasic.dprimary.contoller.ConstructorInjectedController;
 import com.mhasan.springbasic.dprimary.contoller.GetterInjectedController;
@@ -31,7 +32,7 @@ public class DPrimaryApplication {
 		System.out.println(greetingService.sayGreeting());
 
 		System.out.println("====Another one=====");
-		MessagingInterface messagingInterface =ctx.getBean(MessagingInterface.class);
+		MessagingInterface messagingInterface = ctx.getBean( FacebookMessage.class);
 		// there are three beans but in TwitterMessage.class used @Primary
 		// so it will give reference and inject TwitterMessage.class and return twitter message
 		System.out.println(messagingInterface.sendMsg());
